@@ -1,0 +1,1 @@
+export const FooterFeature = () => <h2>footer</h2>;
