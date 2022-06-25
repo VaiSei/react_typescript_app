@@ -1,25 +1,23 @@
 /** @jsxImportSource @emotion/react */
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
+import { PostInterface } from "../interfaces";
+import { PostItem } from "./PostItem";
 
-import { useEffect, useState } from "react";
-import { PostInterface } from '../interfaces';
-import { PostItem } from './PostItem';
+interface Props {
+  posts: PostInterface[];
+}
 
-export const PostList= () => {
-    const [posts, setPosts]=useState([] as PostInterface[]);
-
-    useEffect(()=>{
-        fetch('https://dummyjson.com/posts?limit=10')
-        .then(res => res.json())
-        .then((data)=>{
-            console.log(data)  
-
-            setPosts(data.posts);
-            console.log(posts)
-        });}, [])
-    return <div>
-        {posts.map((post)=>(
-            <PostItem post={post} />
-            
-        ))}
-    </div> 
-};
+export const PostList = ({ posts }: Props) => (
+  <div
+    css={css`
+      flex-wrap: wrap;
+      display: flex;
+      gap: 15px;
+    `}
+  >
+    {posts.map((post) => (
+      <PostItem key={post.id} post={post} />
+    ))}
+  </div>
+);

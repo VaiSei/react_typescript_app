@@ -6,3 +6,10 @@ export interface PostInterface{
     title: number;
   
 }
+export interface PaginationInterface{
+   
+    limit: number;
+    skip: number;
+    total: number;
+    
+ }
