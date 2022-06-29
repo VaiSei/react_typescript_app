@@ -15,7 +15,7 @@ export const PostTags = ({ tags }: Props) => (
       <b
         css={css`
           text-decoration: underline;
-          margin-left: 5px;
+          margin-left: 2px;
         `}
         key={tag}
       >
